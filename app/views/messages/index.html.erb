@@ -1,0 +1,36 @@
+<h1>Messages</h1>
+
+<%= render 'messages' %>
+
+<p><%= link_to "New Message", [:new, @receivable, :message] %></p>
+<!-- einde railscast -->
+
+
+<h1>Listing messages</h1>
+
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Receivable</th>
+    <th>Receivable type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @messages.each do |message| %>
+  <tr>
+    <td><%= message.content %></td>
+    <td><%= message.receivable_id %></td>
+    <td><%= message.receivable_type %></td>
+    <td><%= link_to 'Show', message %></td>
+    <td><%= link_to 'Edit', edit_message_path(message) %></td>
+    <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to "New Message", [:new, @receivable, :message] %>
+<%#= link_to 'New Message', new_message_path %>

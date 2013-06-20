@@ -1,0 +1,30 @@
+<%= form_for [@receivable, @message] do |f| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <!-- content of message? als label noemen? -->
+    <%= f.label :content, rows: 8  %><br />
+    <%= f.text_area :content %>
+  </div>
+<!--   <div class="field">
+    <%#= f.label :receivable_id %><br />
+    <%#= f.number_field :receivable_id %>
+  </div>
+  <div class="field">
+    <%#= f.label :receivable_type %><br />
+    <%#= f.text_field :receivable_type %>
+  </div> -->
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
